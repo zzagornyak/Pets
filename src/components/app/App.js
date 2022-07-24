@@ -25,42 +25,39 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <StyledDiv>
-                <Router>
-                    <StyledWrapper>
-                        <StyledPart >
-                            <SideNav
-                                theme={theme}
-                                setTheme={setTheme}
+                <StyledWrapper>
+                    <StyledPart >
+                        <SideNav
+                            theme={theme}
+                            setTheme={setTheme}
+                        />
+                    </StyledPart>
+                    <StyledPart >
+                        <Routes>
+                            <Route path="/" element={<Home/>}/>
+                            <Route path="/gallery" element={(
+                                    <GalleryProvider>
+                                        <Gallery/>
+                                    </GalleryProvider>
+                                )}/>
+                            <Route path="/voting" element={<Voting/>}/>
+                            <Route path="/search" element={<Search/>}/>
+                            <Route path="/favorites" element={<Favorites/>}/>
+                            <Route path="/liked" element={<Liked/>}/>
+                            <Route path="/disliked" element={<Disliked/>}/>
+                            <Route path="/breeds" element={(
+                                    <BreedsProvider>
+                                        <Breeds/>
+                                    </BreedsProvider>)}
                             />
-                        </StyledPart>
-                        <StyledPart >
-                            <Routes>
-                                <Route path="/" element={<Home/>}/>
-                                <Route path="/gallery" element={(
-                                        <GalleryProvider>
-                                            <Gallery/>
-                                        </GalleryProvider>
-                                    )}/>
-                                <Route path="/voting" element={<Voting/>}/>
-                                <Route path="/search" element={<Search/>}/>
-                                <Route path="/favorites" element={<Favorites/>}/>
-                                <Route path="/liked" element={<Liked/>}/>
-                                <Route path="/disliked" element={<Disliked/>}/>
-                                <Route path="/breeds" element={(
-                                        <BreedsProvider>
-                                            <Breeds/>
-                                        </BreedsProvider>)}
-                                />
-            
-                                <Route path="selected/:id" element={<Selected/>}>
-            
-                                </Route>
-            
-                            </Routes>
-                        </StyledPart>
-                    </StyledWrapper>
-            
-                </Router>
+        
+                            <Route path="selected/:id" element={<Selected/>}>
+        
+                            </Route>
+        
+                        </Routes>
+                    </StyledPart>
+                </StyledWrapper>
             </StyledDiv>
         </ThemeProvider>
     );
