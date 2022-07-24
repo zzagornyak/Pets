@@ -1,0 +1,65 @@
+.search
+    display: grid
+    grid-template-columns: 2fr 1fr
+    grid-template-rows: auto
+
+    &__input
+        text-align: center
+        position: relative
+    &__input-bar
+        width: 100%
+        height: 60px
+        border-radius: 20px
+        padding-right: 15%
+        padding-left: 10px
+        border: 2px inherit
+        &:hover
+            border: 2px solid #FBE0DC
+        &:focus
+            border: 2px solid #FF868E
+        &:focus::placeholder
+            color: transparent
+
+    &__input-button
+        background-color: #FBE0DC
+        width: 40px
+        height: 40px
+        position: absolute
+        right: 10px
+        top: 10px
+        overflow: hidden
+        border-radius: 10px
+        padding: 10px
+        &:hover
+            background: #FF868E
+            img
+                filter: grayscale(1) brightness(1000%)
+
+    &__input-img
+    &__nav
+        display: flex
+        justify-content: space-around
+        align-items: center
+        vertical-align: center
+    &__nav-item
+        background-color: #fff
+        border-radius: 20px
+        width: 60px
+        height: 60px
+    &__button
+        border-radius: 20px
+        text-align: center
+        display: block
+        width: 100%
+        height: 100%
+        &:hover
+            background: #FBE0DC
+    &__button_active
+        pointer-events: none
+        background: #FF868E
+        img
+            filter: grayscale(1) brightness(1000%)
+
+    &__button-image
+        transform: translateY(50%)
+        margin: auto
