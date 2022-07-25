@@ -4,6 +4,10 @@ This single-page application was made by Zahorniak Eughen based on The Cat API a
 
 You can check out the site by clicking on the link [PetsPaw](https://zzagornyak.github.io/Pets/#/)
 
+## About
+If you love cats this app is for you. The site has thousands of pictures of cats that you can search by breed and other filters.
+You can vote for images and create favorite/like/dislike lists.
+It is also possible to upload photos of your pets to the site. 
 
 API Link: [The Cat API](https://thecatapi.com/)
 
