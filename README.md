@@ -1,11 +1,14 @@
-## You can check out the site by clicking on the link [PetsPaw](https://zzagornyak.github.io/Pets/#/)
+## Greetings 👋🏼
 
-## This single-page application was made by Zahorniak Eughen based on The Cat as a test task for MacPaw Internship 2022
+This single-page application was made by Zahorniak Eughen based on The Cat API as a test task for MacPaw Internship 2022
+
+You can check out the site by clicking on the link [PetsPaw](https://zzagornyak.github.io/Pets/#/)
+
 
 API Link: [The Cat API](https://thecatapi.com/)
 
 The following tools were used in the work:
-[React](https://reactjs.org/)
+[React](https://reactjs.org/),
 [Styled components](https://styled-components.com/)
 
 ## Available Scripts
