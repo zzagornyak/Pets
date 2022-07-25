@@ -25,3 +25,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+
+## Gratitude
+
+I would like to express my gratitude to the MacPaw team. 
+Thank you for giving me the opportunity to test my skills. 
+It was a great experience for me and I gained new knowledge.
