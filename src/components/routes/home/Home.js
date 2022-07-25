@@ -16,7 +16,7 @@ export default function Home() {
 const StyledDiv = styled.div`
 width: 100%;
 height: 100vhwidth;
-background: #FBE0DC;
+background: ${({theme}) => theme.pinkLightBlack};
 border-radius: 20px;
 display: flex;
 align-items: center;
@@ -27,7 +27,7 @@ img {
   max-width: 730px;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.1, 1.1);
+  transform: scale(1.2, 1.2);
 }
 
 `
