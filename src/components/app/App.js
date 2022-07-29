@@ -33,7 +33,7 @@ function App() {
                                 setTheme={setTheme}
                             />
                             <Routes>
-                                <Route path="/" element={<Home/>}/>
+                                <Route path="/Pets" element={<Home/>}/>
                                 <Route path="/gallery" element={(
                                         <GalleryProvider>
                                             <Gallery/>
