@@ -52,7 +52,7 @@ header {
     margin: auto;
 }
 @media (max-width: 1200px) {
-    display: ${(props) => props.path === "/" ? "flex" : "none"};
+    display: ${(props) => props.path === "/Pets" ? "flex" : "none"};
 }
 @media (max-width:500px) {
     nav {
