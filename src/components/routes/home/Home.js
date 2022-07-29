@@ -23,11 +23,13 @@ align-items: center;
 justify-content: center;
 overflow: visible;
 img {
-  width: 100%;
-  max-width: 730px;
   height: 100%;
   object-fit: cover;
   transform: scale(1.2, 1.2);
 }
+@media (max-width: 1200px) {
+    display: none;
+}
+
 
 `

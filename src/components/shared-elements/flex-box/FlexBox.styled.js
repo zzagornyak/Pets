@@ -10,6 +10,8 @@ min-height: ${props => props.minHeigth || "100%"};
 height: ${props => props.heigth || "1px"};
 box-sizing: border-box;
 position: relative;
+gap:20px;
+
 
    
 `

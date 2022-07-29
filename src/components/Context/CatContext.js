@@ -21,6 +21,9 @@ export const CatProvider = ({children}) => {
     const [currentRandomCat, setCurrRandomCat] = useState({
     })
     const [searchTerm, setSearchTerm] = useState("")
+
+    const [isModalOpen, setModalOpen] = useState(false)
+    
     useEffect(() => {
         getAllBreeds().then(res => {
             setBreeds(res)
@@ -43,7 +46,8 @@ export const CatProvider = ({children}) => {
                 LogKey: [log, setLog],
                 BreedsKey : [breeds, setBreeds],
                 BreedsNamesKey: [breedsNames, setBreedNames],
-                SearchKey:[searchTerm, setSearchTerm]
+                SearchKey:[searchTerm, setSearchTerm],
+                ModalKey: [isModalOpen, setModalOpen]
             }} 
         >
             {children}

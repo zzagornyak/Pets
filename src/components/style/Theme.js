@@ -10,8 +10,12 @@ const DarkPink = "rgba(255, 134, 142, 0.2)"
 const Black = "#1D1D1D"
 const SemyBlack = "#282828"
 const LightBlack = "rgba(255, 255, 255, 0.05)"
+const FullyBlack = "#282828"
+const Red = "#FF868E"
 
 export const lightTheme = {
+    red: Red,
+    
     pinkDarkPink: Pink,
     pinkLightBlack: Pink,
     
@@ -20,10 +24,12 @@ export const lightTheme = {
     whiteGray: White,
     whiteLightBlack: White,
     whiteSemyBlack: White,
+    whiteFullyBlack: White,
 
     grayWhite: Gray,
     grayBlack: Gray,
     grayLightBlack: Gray,
+    graySemyBlack: Gray,
 
     blackWhite: Black,
 
@@ -38,6 +44,9 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
+    red: Red,
+
+    
     pinkDarkPink: DarkPink,
     pinkLightBlack: LightBlack,
 
@@ -45,11 +54,14 @@ export const darkTheme = {
     whiteGray: Gray,
     whiteLightBlack: LightBlack,
     whiteSemyBlack: SemyBlack,
+    whiteFullyBlack: FullyBlack,
 
 
     grayWhite: White,
     grayBlack: Black,
     grayLightBlack: LightBlack,
+    graySemyBlack: SemyBlack,
+
 
     blackWhite: White,
 
@@ -62,3 +74,16 @@ export const darkTheme = {
 
 
 }
+
+// @media (max-width: 1200px) {
+//     display: flex;
+// }
+
+// @media (max-width: 767px) {
+    
+// }
+
+// @media (max-width: 656px) {
+    
+// }
+

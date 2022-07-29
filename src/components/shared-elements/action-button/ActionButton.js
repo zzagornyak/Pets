@@ -27,4 +27,8 @@ img{
     margin: auto;
     filter: grayscale(1) brightness(1000%) ;
 }
+@media (max-width: 656px) {
+  width: 60px;
+  height: 60px;
+}
 `

@@ -9,5 +9,6 @@ import styled from "styled-components"
     border-radius: 20px;
     overflow: auto;
     position: relative;
+    
 `
 export default StyledContentArea

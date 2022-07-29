@@ -47,7 +47,7 @@ export default SvgButton
 
 
 const StyledBtn = styled.button`
-width: ${({w}) => w ? w : 'auto'};
+min-width: ${({w}) => w ? w : 'auto'};
 height: ${({h}) => h ? h : "40px"};
 border-radius: ${({br}) => br ? br : "10px"};
 

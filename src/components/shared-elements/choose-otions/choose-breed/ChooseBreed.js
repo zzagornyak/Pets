@@ -8,7 +8,6 @@ const ChooseBreed = ({choosedItem, setChoosedItem, chooseList, width, setPage, s
     })
     return (
         <StyledSelect 
-            width={width}
             value={choosedItem} 
             onChange={(event) => {
                 setLastPage(false)
@@ -26,12 +25,14 @@ export default ChooseBreed
 const StyledSelect = styled.select`
 background: ${({theme}) => theme.grayLightBlack};
 border-radius: 10px;
-${props => props.width ? `max-width: ${props.width}`: null};
-width: auto;
+max-width: 200px;
+width: 100%;
 height: 40px;
-margin-left: 10px;
 border: 2px solid transparent;
 color: ${({theme}) => theme.textSec};
+@media (max-width: 656px) {
+    max-width: 100%;
+}
 
     &:hover {
             border: 2px solid #FBE0DC;
@@ -45,4 +46,5 @@ option {
 }
 select{
 }
+
 `

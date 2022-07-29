@@ -23,9 +23,8 @@ export default ChooseLimit
 const StyledSelect = styled.select`
 background: ${({theme}) => theme.grayLightBlack};
 border-radius: 10px;
-${props => props.width ? `width: ${props.width}`: null};
+${props => props.width ? `width: ${props.width}`: "100%"};
 height: 40px;
-margin-left: 10px;
 border: 2px solid transparent;
 color: ${({theme}) => theme.textSec};
 

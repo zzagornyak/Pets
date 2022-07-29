@@ -67,7 +67,6 @@ const FilterBar = () => {
             <div>
                 <span>LIMIT</span>
                 <select
-                    style={{ width: "75%", }}
                     onChange={(event) => setLimit(event.target.value)}
                     value={limit}
                 >
@@ -115,7 +114,24 @@ grid-template-columns: repeat(2, 1fr);
 grid-template-rows: repeat(2, 1fr);
 column-gap: 20px;
 position: relative;
-color: #1D1D1D;   
+color: #1D1D1D; 
+div:nth-of-type(4) {
+    width: 80%;
+}  
+@media (max-width: 656px) {
+    height: auto;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    div:nth-of-type(4) {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }  
+    button {
+        position: static;
+        margin-top: 18px;
+    }
+}
 
     div {
         display: flex;
@@ -140,4 +156,7 @@ color: #1D1D1D;
         }
         
     }
+@media (max-width: 656px) {
+    
+}
 `

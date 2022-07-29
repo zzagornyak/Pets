@@ -27,7 +27,7 @@ import StyledButtonBack from "../../shared-elements/button-back/ButtonBack.style
 import StyledButton from "../../shared-elements/button/Button.styled"
 // 
 import UploadLoader from "../../shared-elements/upload-loader/UploadLoader"
-
+import { StyledWraper } from "../breeds/Breeds"
 
 
 const Gallery = () => {
@@ -39,44 +39,42 @@ const Gallery = () => {
     return (
 
 
-        (isUploadOpen && <ModalWindow
-            setUploadOpen={setUploadOpen}
-            selectedImage={selectedImage}
-            setSelectedImage={setSelectedImage} />
-        ) ||
         <>
-            <StyledFlexBox>
-                <SearchBar />
-                <StyledContentArea>
-                    <StyledFlexBox
-                        align="flex-start"
-                        jc="space-between"
-                        fd="row"
-                        minHeigth="40px">
-                        <StyledDiv>
-                            <StyledButtonBack />
-                            <StyledButton
-                                noHover
-                                isActive={true}
-                                textContent="GALLERY"
+            {isUploadOpen && <ModalWindow
+                setUploadOpen={setUploadOpen}
+                selectedImage={selectedImage}
+                setSelectedImage={setSelectedImage} />}
+            
+            <>
+                <StyledFlexBox>
+                    <SearchBar />
+                    <StyledContentArea>
+                        <Wrapper
+                            align="flex-start"
+                            jc="space-between"
+                            fd="row"
+                            minHeigth="40px">
+                            <StyledDiv>
+                                <StyledButtonBack />
+                                <StyledButton
+                                    noHover
+                                    isActive={true}
+                                    textContent="GALLERY"
+                                />
+                            </StyledDiv>
+                            <SvgButton
+                                onClick={() => {
+                                    setUploadOpen(true)
+                                }}
+                                defaultImg={uploadDefault}
+                                hoverImg={uploadHover}
+                                w={"143px"}
                             />
-                        </StyledDiv>
-                        <SvgButton
-                            onClick={() => {
-                                setUploadOpen(true)
-                            }}
-                            defaultImg={uploadDefault}
-                            hoverImg={uploadHover}
-                            w={"143px"}
-
-                        />
-
-                    </StyledFlexBox>
-
-                    <GalleryContent />
-                </StyledContentArea>
-            </StyledFlexBox>
-
+                        </Wrapper>
+                        <GalleryContent />
+                    </StyledContentArea>
+                </StyledFlexBox>
+            </>
         </>
 
 
@@ -86,11 +84,21 @@ const Gallery = () => {
 
 export default Gallery
 
+const Wrapper = styled(StyledFlexBox)`
+@media (max-width: 500px) {
+    height: auto;
+    flex-wrap: wrap;
+    button:first-of-type{
+        flex-basis: 100%;
+    }
+}
 
+`
 
 const StyledDiv = styled.div`
 display: flex;
 align-items: center;
+gap: 20px;
 
 `
 const Modal = styled.div`
@@ -100,6 +108,7 @@ left: 0;
 right: 0;
 top: 0;
 bottom: 0;
+z-index: 99;
 
     
     
@@ -119,7 +128,23 @@ bottom: 0;
         top: 30px;
         bottom: 30px;
         left: 50%;
-        background: ${({ theme }) => theme.grayLightBlack};
+        background: ${({ theme }) => theme.graySemyBlack};
+        @media (max-width: 1200px) {
+            left: 30px;
+        }
+        @media (max-width: 656px) {
+            left: 10px;
+            top: 10px;
+            bottom: 10px;
+            right: 10px;
+            h2 {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 29px;
+            }
+            
+
+        }
         
         border-radius: 20px;
         padding: 100px 20px 20px 20px;
@@ -362,6 +387,13 @@ align-items: center;
 justify-content: space-around;
 padding: 40px 20px;
 margin-bottom: 20px;
+@media (max-width: 656px) {
+    padding: 10px;
+    height: 30vh;
+    label {
+    }
+}
+
 
 
 ${props => props.error ? css`

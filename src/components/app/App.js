@@ -14,6 +14,7 @@ import Disliked from '../routes/disliked/Disliked'
 import Home from '../routes/home/Home'
 import Selected from '../routes/selected/Selected'
 import Search from '../routes/search/Search'
+import ModalMenu from '../sideNav/ModalMenu.js'
 
 import { BreedsProvider } from '../Context/BreedsContext'
 import { GalleryProvider } from '../Context/GalleryContext'
@@ -25,39 +26,41 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <StyledDiv>
-                <StyledWrapper>
-                    <StyledPart >
-                        <SideNav
-                            theme={theme}
-                            setTheme={setTheme}
-                        />
-                    </StyledPart>
-                    <StyledPart >
-                        <Routes>
-                            <Route path="/" element={<Home/>}/>
-                            <Route path="/gallery" element={(
-                                    <GalleryProvider>
-                                        <Gallery/>
-                                    </GalleryProvider>
-                                )}/>
-                            <Route path="/voting" element={<Voting/>}/>
-                            <Route path="/search" element={<Search/>}/>
-                            <Route path="/favorites" element={<Favorites/>}/>
-                            <Route path="/liked" element={<Liked/>}/>
-                            <Route path="/disliked" element={<Disliked/>}/>
-                            <Route path="/breeds" element={(
-                                    <BreedsProvider>
-                                        <Breeds/>
-                                    </BreedsProvider>)}
+                <Router>
+                    <StyledWrapper>
+                            <SideNav
+                                theme={theme}
+                                setTheme={setTheme}
                             />
-        
-                            <Route path="selected/:id" element={<Selected/>}>
-        
-                            </Route>
-        
-                        </Routes>
-                    </StyledPart>
-                </StyledWrapper>
+                            <Routes>
+                                <Route path="/" element={<Home/>}/>
+                                <Route path="/gallery" element={(
+                                        <GalleryProvider>
+                                            <Gallery/>
+                                        </GalleryProvider>
+                                    )}/>
+                                <Route path="/voting" element={<Voting/>}/>
+                                <Route path="/search" element={<Search/>}/>
+                                <Route path="/favorites" element={<Favorites/>}/>
+                                <Route path="/liked" element={<Liked/>}/>
+                                <Route path="/disliked" element={<Disliked/>}/>
+                                <Route path="/breeds" element={(
+                                        <BreedsProvider>
+                                            <Breeds/>
+                                        </BreedsProvider>)}
+                                />
+            
+                                <Route path="selected/:id" element={<Selected/>}>
+            
+                                </Route>
+                                
+                            </Routes>
+                    </StyledWrapper>
+                    <ModalMenu
+                        setTheme={setTheme}
+                    />
+                                    
+                </Router>
             </StyledDiv>
         </ThemeProvider>
     );
@@ -76,12 +79,15 @@ color: ${({theme})=>theme.textMain};
 const StyledWrapper = styled.div`
 min-height: 100%;
 height: 1px;
-padding: 30px 30px 30px 30px;
+padding: 30px;
 display: flex;
 justify-content: space-around;
 flex-flow: row;
 margin: auto;
 max-width: 1440px;
+@media (max-width: 656px) {
+    padding: 15px;;
+}
 `
 const StyledPart = styled.div`
 width: 50%;

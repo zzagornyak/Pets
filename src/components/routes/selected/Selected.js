@@ -166,7 +166,9 @@ background-size: cover;
         top: 0;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: #FFFFFF;
+        z-index: 10;
+        display: block;
+        background: ${({theme}) => theme.whiteFullyBlack};
     } 
     span {
         color: #8C8C8C;
@@ -180,10 +182,15 @@ width: 100%;
     h4 {
         margin-right: 20px;
     }
+@media (max-width: 500px) {
+    flex-direction: column;
+}
+
 `
 const StyledList = styled.ul`
 margin-right: 20px;
 width: 50%;
+
 
 span {
     color: #8C8C8C;
@@ -194,6 +201,10 @@ margin-top: 20px;
 width: 100%;
 height: 55%;
 border-radius: 20px;
+@media (max-width: 500px) {
+    height: 30vh;
+    
+}
 
 
 .swiper {
@@ -208,7 +219,7 @@ border-radius: 20px;
         padding: 0 10px;
         width: auto;
         height: 30px;
-        background-color: #fff;
+        background-color: ${({theme}) => theme.whiteFullyBlack};
         left: 50%;
         transform: translate(-50%);
         bottom: 1;
@@ -216,9 +227,12 @@ border-radius: 20px;
         display: flex;
         align-items: center;
         .swiper-pagination-bullet {
-
+            opacity: 1;
+            background-color: ${({theme}) => theme.pinkDarkPink}; 
         } 
         .swiper-pagination-bullet-active {
+            background-color: ${({theme}) => theme.red};
+            opacity: 1;
 
         }
     }

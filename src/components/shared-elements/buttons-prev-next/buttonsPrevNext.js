@@ -50,7 +50,7 @@ const BtnWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
-    width: 280px;
+    max-width: 280px;
     overflow: hidden;
     margin: 14px auto 0 auto;
 `

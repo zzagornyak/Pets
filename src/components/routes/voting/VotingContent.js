@@ -66,7 +66,8 @@ export default VotingContent
 
 
 const StyledRandomCatSection = styled.section`
-display: flex;
+display: grid;
+flex-grow: 0;
 flex-direction: column;
 width: 100%;
 min-height: 500px;
@@ -78,9 +79,12 @@ overflow: hidden;
 
 const StyledDiv = styled.div`
 position: relative;
-min-height: 50vh;
+height: 50vh;   
 margin: auto;
 display: flex;
+@media (max-width: 500px) {
+    height: 30vh;   
+}
 
 `
 
@@ -91,6 +95,10 @@ background-color: #fff;
 border-radius: 20px;
 margin:auto;
 object-fit: cover;
+@media (max-width: 500px) {
+    height: 30vh;   
+}
+
 `
 
 const StyledActionsSection = styled.section`

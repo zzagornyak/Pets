@@ -41,7 +41,6 @@ const StyledBtn = styled.button`
     background-position: center;
     background-repeat: no-repeat;
     object-fit: cover;
-    margin-left: 10px;
     cursor: pointer;
     background-color: ${({theme}) => theme.grayLightBlack};
     &:hover {

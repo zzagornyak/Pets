@@ -25,10 +25,8 @@ const ActionLog = ({id, message, action, time}) => {
 
   return (
     <StyledAction >
-        <div>
-          <span>{time}</span>
-          <span>Image ID:  {id} {message}</span>
-        </div>
+        <span>{time}</span>
+        <p>Image ID:  {id} {message}</p>
         <img src={img} alt={action != "delete" ? action : ""}/>
     </StyledAction>
   )
@@ -41,18 +39,34 @@ const StyledAction = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-height: 60px;
+min-height: 60px;
 background-color: ${({theme}) => theme.grayLightBlack};
 border-radius: 10px;
 margin-bottom: 10px;
-padding: 0 25px;
+padding: 10px 25px;
+text-align: center;
+flex-wrap: wrap;
 div{
   display: flex;
 }
-span {
-  display: block;
-  margin-right: 30px;
-  min-width: 50px;
-}
 
+
+@media (max-width: 656px) {
+text-align: left;
+
+span {
+  margin-right: 30px;
+  order: -3;
+
+}
+p {
+  width: 100%;
+  margin-right: 30px;
+  order: 5;
+}
+img {
+  display: block;
+  order: -1;
+}   
+}
 `

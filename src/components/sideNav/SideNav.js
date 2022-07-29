@@ -4,10 +4,7 @@ import { useState } from "react"
 
 import NavItem from "./NavItem"
 
-import BreedsButton from "../images/side-nav/breeds-button.svg"
-import GalleryButton from "../images/side-nav/gallery-button.svg"
-import VotingButton from "../images/side-nav/voting-button.svg"
-
+import Navigation from "./Navigation"
 import styled from "styled-components"
 
 import StyledLogo from "./Logo"
@@ -18,66 +15,17 @@ import themeButton from "../images/theme-switcher/themeButton.svg"
 
 import { lightTheme } from "../style/Theme.js"
 import { darkTheme } from "../style/Theme.js"
-
+import { useLocation } from "react-router-dom"
 
 const SideNav = ({setTheme}) => {
-
+    const location = useLocation()
     return (
-    <StyledSection>
-        <StyledWrapper>
-            <header>
-                <div>
-                    <Link to="/">
-                        <StyledLogo/>
-                    </Link>
-                </div>
-
-                <ThemeSwitcher 
-                    onClick={() => {
-                        setTheme(theme => theme === darkTheme ? lightTheme : darkTheme  )
-                    }} 
-                >
-                    <Eye/>
-                    <div>
-                        <img src={themeButton} alt="theme-switcher-button" />
-                    </div>
-                </ThemeSwitcher>
-
-            </header>
-            <StyledNavWrapper>
-                <h1 >Hi, intern!</h1>
-                <p>Welcome to MI 2022 Front-end test</p>
-                <StyledNav>
-                    <span>Lets start using The Cat API</span>
-                    <ul>
-                        <NavItem
-                            imgSrc={VotingButton}
-                            buttonText="VOTING"
-                            url="/voting"
-                            background="#B4B7FF"
-                            alt="tablet"
-                            onClick={null}
-                        />
-                        <NavItem
-                            imgSrc={BreedsButton}
-                            buttonText="BREEDS"
-                            url="/breeds"
-                            background="#97EAB9"
-                            alt="cat"
-                            onClick={null}
-                        />
-                        <NavItem
-                            imgSrc={GalleryButton}
-                            buttonText="GALLERY"
-                            url="/gallery"
-                            background="#FFD280"
-                            alt="cat`s hand with mp3-player"
-                            onClick={null}
-                        />
-                    </ul>
-                </StyledNav>
-            </StyledNavWrapper>
-        </StyledWrapper>
+    <StyledSection
+        path={location.pathname}
+    >
+        <SideNavContent
+            setTheme={setTheme}
+        />
     </StyledSection>
            
     )
@@ -88,44 +36,37 @@ export default SideNav
 const StyledWrapper = styled.div`
 margin: 0 auto;
 max-width:450px;
-`
-const StyledNavWrapper = styled.div`
-width: 450px;
-height: 450px;
-display: flex;
-flex-direction: column;
-
-margin: 80px auto;
-p {
-    color: #8C8C8C;
-    margin-top: 10px;
-    font-style: normal;
+@media (max-width: 656px) {
+    width: 100%;
 }
 `
-
-const StyledNav = styled.nav`
-margin-top: 60px;
-span {
-    font-size: 20px;
-    line-height: 29px;
-    color: ${({theme}) => theme.textMain};
-}
-ul {
-margin-top: 20px;
-display: flex;
-justify-content: space-between;
-}
-`
-
 
 const StyledSection = styled.section`
 width: 100%;
 height: 100%;
 
+
 header {
     display: flex;
     justify-content: space-between;
     margin: auto;
+}
+@media (max-width: 1200px) {
+    display: ${(props) => props.path === "/" ? "flex" : "none"};
+}
+@media (max-width:500px) {
+    nav {
+        ul {
+            flex-direction: column;
+            align-items: center;
+            button {
+                width: 90vw;
+            }
+        }
+        img {
+            display: none;
+        }
+    }
 }
 `
 
@@ -163,3 +104,33 @@ width: 24px;
 height: 24px;
 border-radius: 50px ;
 `
+
+
+export const SideNavContent = ({setTheme}) => {
+
+    return (
+        <StyledWrapper>
+            <header>
+                <div>
+                    <Link to="/">
+                        <StyledLogo/>
+                    </Link>
+                </div>
+
+                <ThemeSwitcher 
+                    onClick={(e) => {
+                        e.stopPropagation()
+                        setTheme(theme => theme === darkTheme ? lightTheme : darkTheme  )
+                    }} 
+                >
+                    <Eye/>
+                    <div>
+                        <img src={themeButton} alt="theme-switcher-button" />
+                    </div>
+                </ThemeSwitcher>
+
+            </header>
+            <Navigation/>
+        </StyledWrapper>
+    )
+}

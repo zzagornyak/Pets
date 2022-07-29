@@ -17,7 +17,6 @@ min-width: 40px;
 min-height: 40px;
 border-radius: 10px;
 background-color: ${({theme}) => theme.pinkDarkPink};
-margin-right: 10px;
 &:hover {
     background-color: #FF868E;
     img{

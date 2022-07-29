@@ -48,7 +48,7 @@ const Breads = () => {
 
             <StyledContentArea  >
 
-                <StyledFlexBox 
+                <StyledWraper 
                     align="flex-start"
                     jc="flex-start" 
                     fd="row"
@@ -63,7 +63,6 @@ const Breads = () => {
                     
                     
                     <ChooseBreed 
-                        width="170px"
                         choosedItem={choosedBreed} 
                         setChoosedItem={setChoosedBreed} 
                         chooseList={breedsNames} 
@@ -82,7 +81,7 @@ const Breads = () => {
                         setSortReversed={setSortReversed}
                     />
 
-                </StyledFlexBox> 
+                </StyledWraper> 
 
                 <BreedsContent/>
                 
@@ -99,6 +98,26 @@ const Breads = () => {
 
 export default Breads
 
+export const StyledWraper = styled(StyledFlexBox)`
+height: auto;
+gap: 20px;
+select:nth-of-type(2) {
+    @media (max-width: 656px) {
+        width: 75%;
+    }
+    @media (max-width: 500px) {
+        width: 60%;
+    }
+} 
+@media (max-width: 656px) {
+    flex-wrap: wrap;
+    gap: 10px;
+     
+}
 
+
+
+
+`
 
 

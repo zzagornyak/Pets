@@ -9,7 +9,7 @@ import buttonActive from "../../images/like-button/likeActive.svg"
 import { CatContext } from "../../Context/CatContext"
 import { useContext } from "react"
 
-const GridContent = ({ content, withBreeds, noHover}) => {
+const GridContent = ({ content, withBreeds, noHover }) => {
     const { FavoritesKey } = useContext(CatContext)
     const [favorite, setToFavorites] = FavoritesKey
 
@@ -36,19 +36,19 @@ const GridContent = ({ content, withBreeds, noHover}) => {
                                 </StyledGridItem>)
                         } else {
                             return (
-                                <StyledGridItemWithFav 
-                                    noHover={noHover} 
-                                    key={index} 
+                                <StyledGridItemWithFav
+                                    noHover={noHover}
+                                    key={index}
                                     index={index}
                                 >
-                                        <img src={item.image} alt="cat" />
-                                        <div>
-                                            <ButtonWithFav
-                                                favorite={favorite}
-                                                setToFavorites={setToFavorites}
-                                                item={item}
-                                            />
-                                        </div>
+                                    <img src={item.image} alt="cat" />
+                                    <div>
+                                        <ButtonWithFav
+                                            favorite={favorite}
+                                            setToFavorites={setToFavorites}
+                                            item={item}
+                                        />
+                                    </div>
                                 </StyledGridItemWithFav>)
                         }
 
@@ -88,7 +88,7 @@ const ButtonWithFav = ({ favorite, setToFavorites, item }) => {
                     if (active) {
                         setActive(false)
                         setToFavorites(favorite => {
-                            return favorite.filter((subitem) =>  item.id !== subitem.id)
+                            return favorite.filter((subitem) => item.id !== subitem.id)
                         })
                     } else {
                         setToFavorites(favorite => [...favorite, item])
@@ -110,18 +110,34 @@ const Btn = styled.button`
 `
 
 const StyledGridWrapper = styled.div`
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 140px);
-  grid-gap: 20px;
-  grid-template-areas: 
-  "one two three"
-  "one four four"
-  "five four four"
-  "six seven eight"
-  "nine nine eight"
-  "nine nine ten";
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 140px);
+    grid-gap: 20px;
+    grid-template-areas: 
+    "one two three"
+    "one four four"
+    "five four four"
+    "six seven eight"
+    "nine nine eight"
+    "nine nine ten";
+    @media (max-width: 656px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(10, auto);
+        grid-template-areas:
+        "one"
+        "two"
+        "three"
+        "four"
+        "five"
+        "six"
+        "seven"
+        "eight"
+        "nine"
+        "ten";
+        
+    }
 `
 
 const StyledGridItem = styled.div`
@@ -145,8 +161,9 @@ const StyledGridItem = styled.div`
     img{
         width: 100%;
         height: 100%;
+        max-height: 400px;
         object-fit: cover;
-        ${props => props.noHover === true? null : "cursor: pointer;"}
+        ${props => props.noHover === true ? null : "cursor: pointer;"}
     }
         
     div {

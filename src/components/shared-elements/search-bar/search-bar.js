@@ -1,29 +1,37 @@
 import styled from 'styled-components'
+import { css } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useEffect, useContext, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 
-import Like from "./images/like.svg"
-import Favorite from "./images/favorite.svg"
-import Dislike from "./images/dislike.svg"
 import SearchButton from "./images/search-button.png"
-
+import MenuModalBtn from '../svg-button/menuModalButton'
 // import "./search-bar.sass"
 import { CatContext } from '../../Context/CatContext'
 
-// 
+import Like from "./images/like.svg"
+import Favorite from "./images/favorite.svg"
+import Dislike from "./images/dislike.svg"
+import Stripes from "../../images/menu-modal/menuModal.svg"
 
 const SearchBar = () => {
 
-    const {SearchKey} = useContext(CatContext)
+    const {SearchKey, ModalKey} = useContext(CatContext)
     const [searchTerm, setSearchTerm] = SearchKey
     const [searchError, setSearchError] = useState("")
+    const [isModalOpen, setModalOpen] = ModalKey
     const navigate = useNavigate()
 
     return (
         <Div>
             <div className="search">
+                <MenuModalBtn 
+                onClick={() => {
+                    setModalOpen(true)
+                }}
+                defaultImg={Stripes}
+                />
                 <div className="search__input">
                     <input
                         value={searchTerm}
@@ -53,9 +61,11 @@ const SearchBar = () => {
                         type="text"
                         className="search__input-bar"
                     />
+
                     <div className="search__input-button">
                         <NavLink to="/search"><img className='search__input-img' src={SearchButton} alt="search" /></NavLink>
                     </div>
+
                 </div>
                 <nav className="search__nav">
                     <div className='search__nav-item'>
@@ -89,16 +99,27 @@ export default SearchBar
 
 
 const Div = styled.div`
-/* display: grid;
-grid-template-columns: 2fr 1fr;
-grid-template-rows: auto; */
+
 .search {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    /* grid-template-rows: repeat(1, 60px); */
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1rem;
+    @media (max-width: 656px) {
+        flex-wrap: wrap;
+    }
+    
+    
     &__input {
+        width: 100%;
         text-align: center;
         position: relative;
+        
+        @media (max-width: 656px) {
+            order: 1;
+        }
 
     }
         
@@ -111,6 +132,8 @@ grid-template-rows: auto; */
         padding-left: 10px;
         border: 2px inherit;
         background-color: ${({theme}) => theme.whiteLightBlack};
+        color: ${({theme}) => theme.textMain};
+
 
         &:hover {
             border: 2px solid #FBE0DC;
@@ -151,6 +174,8 @@ grid-template-rows: auto; */
         display: flex;
         justify-content: space-around;
         align-items: center;
+        gap: 1rem;
+        
     }
         
     &__nav-item {
@@ -183,6 +208,4 @@ grid-template-rows: auto; */
     }
 
 }
-
-
 `

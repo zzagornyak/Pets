@@ -15,11 +15,10 @@ min-height: 36px;
 height: 40px;
 width: auto ;
 border-radius: 10px;
-margin-right: 10px;
 letter-spacing: 2px;
 color: #FFFFFF;
 ${props => props.isActive ? "background-color: #FF868E;": css`
-background-color: #FBE0DC;
+background-color: ${({theme}) => theme.pinkDarkPink};
 color: #FF868E;
 `};
 
