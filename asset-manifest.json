@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Pets/static/css/main.b3a9f2d8.css",
-    "main.js": "/Pets/static/js/main.09dea47d.js",
+    "main.js": "/Pets/static/js/main.20e72e93.js",
     "static/media/breeds-button.svg": "/Pets/static/media/breeds-button.ca527681749f755dd8feb3b118cc1317.svg",
     "static/media/girl-and-pet1.png": "/Pets/static/media/girl-and-pet1.8a8ef0d2a5fab7f60f72.png",
     "static/media/gallery-button.svg": "/Pets/static/media/gallery-button.608a4d18bd0b028ed2d8cabd1053476e.svg",
@@ -23,8 +23,8 @@
     "static/media/sortHover.svg": "/Pets/static/media/sortHover.b8cde770f94e4375d15a5ba06d8e8ace.svg",
     "static/media/likeActive.svg": "/Pets/static/media/likeActive.64c5e0b8455cd1b30082ea21f35d1935.svg",
     "static/media/likeDefault.svg": "/Pets/static/media/likeDefault.4856f24e00e9906ed8546ef0f5f4a937.svg",
-    "static/media/favorite.svg": "/Pets/static/media/favorite.c9b65e16383bc3ac9048c730d951d879.svg",
     "index.html": "/Pets/index.html",
+    "static/media/favorite.svg": "/Pets/static/media/favorite.c9b65e16383bc3ac9048c730d951d879.svg",
     "static/media/dislike.svg": "/Pets/static/media/dislike.3504f337101ff27d09a47f31a75b1bfd.svg",
     "static/media/like.svg": "/Pets/static/media/like.e33348bfc4e3e8f801c5b362034dfc94.svg",
     "static/media/error.svg": "/Pets/static/media/error.77d680b62ef7678640d5ea769b17094d.svg",
@@ -37,10 +37,10 @@
     "static/media/menuModal.svg": "/Pets/static/media/menuModal.149bd42f9371cd5442aa1e7dbc2fe8f1.svg",
     "static/media/themeButton.svg": "/Pets/static/media/themeButton.90d7269d18e69f41038d354d145c9330.svg",
     "main.b3a9f2d8.css.map": "/Pets/static/css/main.b3a9f2d8.css.map",
-    "main.09dea47d.js.map": "/Pets/static/js/main.09dea47d.js.map"
+    "main.20e72e93.js.map": "/Pets/static/js/main.20e72e93.js.map"
   },
   "entrypoints": [
     "static/css/main.b3a9f2d8.css",
-    "static/js/main.09dea47d.js"
+    "static/js/main.20e72e93.js"
   ]
 }
