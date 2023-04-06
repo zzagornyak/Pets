@@ -1,3 +1,4 @@
+import { createBrowserHistory as createHistory } from 'history';
 import styled from 'styled-components'
 import { useState } from 'react'
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
@@ -18,7 +19,13 @@ import ModalMenu from '../sideNav/ModalMenu.js'
 
 import { BreedsProvider } from '../Context/BreedsContext'
 import { GalleryProvider } from '../Context/GalleryContext'
+const history = createHistory();
 
+history.listen((location, action) => {
+  if (action !== 'REPLACE') {
+    window['strum']('routeChange', window.location.href);
+  }
+})
 
 function App() {
     const [theme, setTheme] = useState(darkTheme)
@@ -26,7 +33,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <StyledDiv>
-                <Router>
+                <Router history={history}>
                     <StyledWrapper>
                             <SideNav
                                 theme={theme}
